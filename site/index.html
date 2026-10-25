@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DaHora Açaí — O melhor açaí do seu jeito | Igrejinha & Parobé</title>
+<meta name="description" content="DaHora Açaí: monte seu açaí do seu jeito e peça pelo WhatsApp. Delivery e retirada em Igrejinha e Parobé.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   DAHORA AÇAÍ — SITE FUNCIONAL (mobile-first)
+   Cores extraídas da logo e do pedido.anota.ai:
+   roxo #7E17DE · violeta escuro #4A148C · lilás #E9D8FB
+   off-white #FBF9FD · amarelo suave #F6C445 · cinza #3A3A3A
+   ============================================================ */
+:root{
+  --roxo:#7E17DE;
+  --roxo-escuro:#4A148C;
+  --lilas:#E9D8FB;
+  --lilas-claro:#F4ECFD;
+  --fundo:#FBF9FD;
+  --amarelo:#F6C445;
+  --texto:#3A3A3A;
+  --texto-suave:#7c7286;
+  --branco:#ffffff;
+  --ok:#1e9e57;
+  --raio:16px;
+  --sombra:0 4px 18px rgba(74,20,140,.08);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Poppins',sans-serif;background:var(--fundo);color:var(--texto);font-size:16px;line-height:1.5}
+img{display:block;max-width:100%}
+button{font-family:inherit;cursor:pointer;border:none}
+a{color:inherit}
+
+/* ---------- CABEÇALHO ---------- */
+header{position:sticky;top:0;z-index:50;background:var(--branco);box-shadow:0 2px 12px rgba(74,20,140,.07)}
+.header-in{max-width:1080px;margin:0 auto;padding:10px 16px;display:flex;align-items:center;gap:12px}
+.logo{width:44px;height:44px;border-radius:50%;object-fit:cover;box-shadow:0 0 0 2px var(--lilas)}
+.brand{flex:1;min-width:0}
+.brand strong{color:var(--roxo-escuro);font-size:1.05rem;display:block;line-height:1.1}
+.brand span{font-size:.72rem;color:var(--texto-suave)}
+.cart-btn{position:relative;background:var(--lilas-claro);border:1.5px solid var(--lilas);border-radius:12px;width:46px;height:46px;display:flex;align-items:center;justify-content:center}
+.cart-btn svg{width:22px;height:22px;stroke:var(--roxo);fill:none;stroke-width:2}
+.badge{position:absolute;top:-6px;right:-6px;background:var(--roxo);color:#fff;font-size:.68rem;font-weight:700;min-width:20px;height:20px;border-radius:10px;display:none;align-items:center;justify-content:center;padding:0 5px}
+.badge.on{display:flex}
+.btn-pedido{background:var(--roxo);color:#fff;font-weight:600;font-size:.85rem;padding:11px 18px;border-radius:12px}
+.btn-pedido:hover{background:#6b10c2}
+nav.cats{max-width:1080px;margin:0 auto;padding:0 16px 10px;display:flex;gap:8px;overflow-x:auto;scrollbar-width:none}
+nav.cats::-webkit-scrollbar{display:none}
+nav.cats a{white-space:nowrap;font-size:.8rem;font-weight:600;color:var(--texto-suave);background:var(--lilas-claro);border:1.5px solid transparent;padding:7px 14px;border-radius:999px;text-decoration:none}
+nav.cats a.ativo,nav.cats a:hover{color:var(--roxo);border-color:var(--roxo);background:#fff}
+
+/* ---------- HERO ---------- */
+.hero{max-width:1080px;margin:0 auto;padding:22px 16px 8px;display:grid;gap:20px;align-items:center}
+@media(min-width:760px){.hero{grid-template-columns:1.1fr .9fr;padding-top:36px}}
+.hero-img{border-radius:var(--raio);overflow:hidden;box-shadow:var(--sombra);max-height:340px}
+.hero-img img{width:100%;height:100%;object-fit:cover}
+.pill{display:inline-flex;align-items:center;gap:6px;background:var(--lilas-claro);color:var(--roxo);font-size:.75rem;font-weight:600;padding:6px 13px;border-radius:999px;margin-bottom:12px}
+h1{font-size:1.7rem;line-height:1.2;color:var(--roxo-escuro);font-weight:800}
+@media(min-width:760px){h1{font-size:2.3rem}}
+.hero p.sub{color:var(--texto-suave);margin:10px 0 18px;font-size:.95rem}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap}
+.btn{padding:13px 22px;border-radius:13px;font-weight:600;font-size:.92rem;display:inline-flex;align-items:center;gap:8px;transition:.15s}
+.btn-roxo{background:var(--roxo);color:#fff}
+.btn-roxo:hover{background:#6b10c2}
+.btn-lilas{background:var(--lilas);color:var(--roxo-escuro)}
+.hero-info{display:flex;gap:16px;margin-top:18px;flex-wrap:wrap}
+.hero-info div{display:flex;align-items:center;gap:7px;font-size:.78rem;color:var(--texto-suave);font-weight:500}
+.hero-info svg{width:17px;height:17px;stroke:var(--roxo);fill:none;stroke-width:2}
+
+/* ---------- SEÇÕES ---------- */
+section{max-width:1080px;margin:0 auto;padding:34px 16px 6px}
+.sec-head{display:flex;align-items:baseline;justify-content:space-between;gap:10px;margin-bottom:16px}
+h2{font-size:1.3rem;color:var(--roxo-escuro);font-weight:800}
+.sec-head a{font-size:.8rem;font-weight:600;color:var(--roxo);text-decoration:none}
+
+/* ---------- CATEGORIAS (cards) ---------- */
+.cat-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+@media(min-width:760px){.cat-grid{grid-template-columns:repeat(3,1fr)}}
+.cat-card{background:#fff;border-radius:var(--raio);overflow:hidden;box-shadow:var(--sombra);text-decoration:none;display:block}
+.cat-card img{width:100%;height:130px;object-fit:cover}
+@media(min-width:760px){.cat-card img{height:160px}}
+.cat-card h3{font-size:.92rem;padding:12px 14px 4px;color:var(--roxo-escuro)}
+.cat-card p{font-size:.75rem;color:var(--texto-suave);padding:0 14px 14px}
+
+/* ---------- CARDÁPIO ---------- */
+.categoria-bloco{margin-top:26px}
+.categoria-bloco h2{margin-bottom:4px}
+.categoria-bloco>.desc{font-size:.82rem;color:var(--texto-suave);margin-bottom:14px}
+.prod-grid{display:grid;gap:12px}
+@media(min-width:760px){.prod-grid{grid-template-columns:1fr 1fr}}
+.prod-card{background:#fff;border-radius:var(--raio);box-shadow:var(--sombra);display:flex;gap:12px;padding:12px;align-items:stretch}
+.prod-card img{width:96px;height:96px;object-fit:cover;border-radius:12px;flex-shrink:0}
+.prod-info{flex:1;min-width:0;display:flex;flex-direction:column}
+.prod-info h3{font-size:.92rem;color:var(--roxo-escuro);line-height:1.25}
+.prod-info .desc{font-size:.74rem;color:var(--texto-suave);margin:3px 0 6px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.prod-foot{margin-top:auto;display:flex;align-items:center;justify-content:space-between;gap:8px}
+.preco{font-weight:800;color:var(--roxo);font-size:1rem}
+.btn-add{background:var(--roxo);color:#fff;font-size:.78rem;font-weight:600;padding:9px 16px;border-radius:10px}
+.btn-add:hover{background:#6b10c2}
+.tag{display:inline-block;font-size:.62rem;font-weight:700;color:var(--amarelo);background:#fff8e3;padding:3px 8px;border-radius:999px;margin-top:4px;width:fit-content}
+
+/* ---------- SOBRE / LOCAL ---------- */
+.sobre-grid{display:grid;gap:18px}
+@media(min-width:760px){.sobre-grid{grid-template-columns:1fr 1fr}}
+.sobre-grid img{border-radius:var(--raio);box-shadow:var(--sombra);width:100%;height:230px;object-fit:cover}
+.info-card{background:#fff;border-radius:var(--raio);box-shadow:var(--sombra);padding:20px}
+.info-card h3{color:var(--roxo-escuro);font-size:1rem;margin-bottom:10px}
+.info-item{display:flex;gap:10px;align-items:flex-start;font-size:.85rem;margin-bottom:10px;color:var(--texto)}
+.info-item svg{width:18px;height:18px;stroke:var(--roxo);fill:none;stroke-width:2;flex-shrink:0;margin-top:2px}
+.aviso{background:var(--lilas-claro);border:1.5px dashed var(--lilas);border-radius:12px;padding:12px 14px;font-size:.76rem;color:var(--roxo-escuro);margin-top:10px}
+
+/* ---------- CARRINHO (drawer) ---------- */
+.overlay{position:fixed;inset:0;background:rgba(40,10,70,.45);opacity:0;pointer-events:none;transition:.25s;z-index:90}
+.overlay.on{opacity:1;pointer-events:auto}
+.drawer{position:fixed;top:0;right:0;bottom:0;width:min(420px,100%);background:var(--fundo);z-index:100;transform:translateX(105%);transition:transform .28s ease;display:flex;flex-direction:column}
+.drawer.on{transform:translateX(0)}
+.drawer-head{background:var(--roxo);color:#fff;padding:16px;display:flex;align-items:center;justify-content:space-between}
+.drawer-head strong{font-size:1rem}
+.fechar{background:rgba(255,255,255,.18);color:#fff;width:34px;height:34px;border-radius:10px;font-size:1.1rem}
+.drawer-body{flex:1;overflow-y:auto;padding:16px}
+.carrinho-vazio{text-align:center;padding:50px 20px;color:var(--texto-suave)}
+.carrinho-vazio svg{width:56px;height:56px;stroke:var(--lilas);fill:none;stroke-width:1.6;margin:0 auto 14px;display:block}
+.carrinho-vazio .btn{margin-top:16px}
+.cart-item{background:#fff;border-radius:14px;box-shadow:var(--sombra);padding:12px;margin-bottom:12px}
+.cart-item .linha1{display:flex;justify-content:space-between;gap:8px;align-items:flex-start}
+.cart-item h4{font-size:.88rem;color:var(--roxo-escuro)}
+.cart-item .ops{font-size:.72rem;color:var(--texto-suave);margin:4px 0}
+.cart-item .remover{background:none;color:#c33;font-size:.72rem;font-weight:600;padding:2px 0;text-decoration:underline}
+.qtd{display:flex;align-items:center;gap:10px}
+.qtd button{width:30px;height:30px;border-radius:9px;background:var(--lilas-claro);color:var(--roxo);font-size:1rem;font-weight:700;border:1.5px solid var(--lilas)}
+.qtd span{font-weight:700;min-width:18px;text-align:center}
+.cart-item .val{font-weight:800;color:var(--roxo);font-size:.9rem}
+
+/* ---------- FORMULÁRIO DE ENTREGA ---------- */
+.fld{margin-bottom:12px}
+.fld label{display:block;font-size:.76rem;font-weight:600;color:var(--roxo-escuro);margin-bottom:5px}
+.fld input,.fld select,.fld textarea{width:100%;padding:11px 13px;border:1.5px solid var(--lilas);border-radius:11px;font-family:inherit;font-size:.86rem;background:#fff;color:var(--texto)}
+.fld input:focus,.fld select:focus,.fld textarea:focus{outline:none;border-color:var(--roxo)}
+.toggle-entrega{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px}
+.toggle-entrega button{padding:12px;border-radius:12px;border:1.5px solid var(--lilas);background:#fff;font-weight:600;font-size:.82rem;color:var(--texto-suave)}
+.toggle-entrega button.on{border-color:var(--roxo);background:var(--lilas-claro);color:var(--roxo)}
+.totais{background:#fff;border-radius:14px;box-shadow:var(--sombra);padding:14px;margin-top:6px}
+.totais .l{display:flex;justify-content:space-between;font-size:.84rem;padding:3px 0;color:var(--texto)}
+.totais .l.total{font-weight:800;color:var(--roxo);font-size:1rem;border-top:1.5px dashed var(--lilas);margin-top:8px;padding-top:10px}
+.drawer-foot{padding:14px 16px;background:#fff;border-top:1px solid var(--lilas)}
+.btn-final{width:100%;background:var(--ok);color:#fff;font-weight:700;font-size:.95rem;padding:15px;border-radius:13px;display:flex;align-items:center;justify-content:center;gap:9px}
+.btn-final:hover{background:#178546}
+.nota-pix{font-size:.68rem;color:var(--texto-suave);text-align:center;margin-top:8px}
+
+/* ---------- MODAL PERSONALIZADOR ---------- */
+.modal{position:fixed;inset:0;z-index:110;display:none;align-items:flex-end;justify-content:center}
+@media(min-width:600px){.modal{align-items:center}}
+.modal.on{display:flex}
+.modal-bg{position:absolute;inset:0;background:rgba(40,10,70,.5)}
+.modal-card{position:relative;background:var(--fundo);width:min(520px,100%);max-height:92vh;border-radius:22px 22px 0 0;display:flex;flex-direction:column;overflow:hidden}
+@media(min-width:600px){.modal-card{border-radius:22px}}
+.modal-head{background:var(--roxo);color:#fff;padding:15px 18px;display:flex;justify-content:space-between;align-items:center}
+.modal-head strong{font-size:.95rem}
+.steps{display:flex;gap:6px;padding:12px 16px 0}
+.steps span{flex:1;height:5px;border-radius:3px;background:var(--lilas)}
+.steps span.on{background:var(--roxo)}
+.modal-body{flex:1;overflow-y:auto;padding:16px}
+.modal-body h3{color:var(--roxo-escuro);font-size:1rem;margin-bottom:4px}
+.modal-body .dica{font-size:.76rem;color:var(--texto-suave);margin-bottom:14px}
+.opt-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.opt{background:#fff;border:2px solid var(--lilas);border-radius:13px;padding:12px;text-align:left}
+.opt.on{border-color:var(--roxo);background:var(--lilas-claro)}
+.opt strong{display:block;font-size:.86rem;color:var(--roxo-escuro)}
+.opt small{font-size:.74rem;color:var(--texto-suave)}
+.check-list{display:flex;flex-direction:column;gap:8px}
+.chk{display:flex;align-items:center;gap:10px;background:#fff;border:1.5px solid var(--lilas);border-radius:11px;padding:11px 13px;font-size:.86rem}
+.chk input{width:19px;height:19px;accent-color:var(--roxo)}
+.chk .add{margin-left:auto;font-size:.72rem;color:var(--amarelo);font-weight:700}
+.revisao{background:#fff;border-radius:14px;box-shadow:var(--sombra);padding:16px;font-size:.86rem}
+.revisao h4{color:var(--roxo-escuro);margin-bottom:8px}
+.revisao p{margin-bottom:6px}
+.modal-foot{padding:14px 16px;background:#fff;display:flex;gap:12px;align-items:center;border-top:1px solid var(--lilas)}
+.modal-foot .preco-live{font-weight:800;color:var(--roxo);font-size:1.1rem}
+.modal-foot .btn{flex:1;justify-content:center}
+.btn-ghost{background:var(--lilas);color:var(--roxo-escuro)}
+
+/* ---------- TOAST ---------- */
+.toast{position:fixed;bottom:24px;left:50%;transform:translate(-50%,80px);background:var(--roxo-escuro);color:#fff;padding:12px 22px;border-radius:999px;font-size:.82rem;font-weight:600;opacity:0;transition:.3s;z-index:200;box-shadow:0 6px 20px rgba(0,0,0,.25)}
+.toast.on{transform:translate(-50%,0);opacity:1}
+
+footer{background:var(--roxo-escuro);color:#e9dcf8;margin-top:44px;padding:30px 16px 90px;font-size:.8rem}
+.foot-in{max-width:1080px;margin:0 auto;display:grid;gap:18px}
+@media(min-width:760px){.foot-in{grid-template-columns:1fr 1fr 1fr}}
+footer strong{color:#fff;display:block;margin-bottom:6px}
+footer a{color:var(--amarelo)}
+.espaco-rodape{height:70px}
+</style>
+</head>
+<body>
+
+<!-- ======================= CABEÇALHO ======================= -->
+<header>
+  <div class="header-in">
+    <img src="img/logo.jpg" alt="Logo DaHora Açaí" class="logo">
+    <div class="brand">
+      <strong>DaHora Açaí</strong>
+      <span>Igrejinha &amp; Parobé · Delivery e retirada</span>
+    </div>
+    <button class="cart-btn" id="btnCart" aria-label="Abrir carrinho">
+      <svg viewBox="0 0 24 24"><path d="M6 6h15l-1.5 8.5a2 2 0 0 1-2 1.5H8.6a2 2 0 0 1-2-1.6L4.6 3.6A1 1 0 0 0 3.6 3H2"/><circle cx="9" cy="20" r="1.4"/><circle cx="18" cy="20" r="1.4"/></svg>
+      <span class="badge" id="badge">0</span>
+    </button>
+    <button class="btn-pedido" onclick="location.hash='#cardapio'">Fazer pedido</button>
+  </div>
+  <nav class="cats" id="navCats">
+    <a href="#cardapio" class="ativo">Açaí tradicional</a>
+    <a href="#cat-cupuacu-misto">Açaí com cupuaçu</a>
+    <a href="#cat-cravejado">Açaí cravejado</a>
+    <a href="#cat-trufados">Copos trufados</a>
+    <a href="#cat-cupuacu">Cupuaçu puro</a>
+    <a href="#cat-bebidas">Bebidas</a>
+    <a href="#monte">Monte seu açaí</a>
+  </nav>
+</header>
+
+<!-- ======================= HERO ======================= -->
+<div class="hero">
+  <div>
+    <span class="pill">💜 O melhor açaí do seu jeito</span>
+    <h1>Seu momento mais gostoso do dia!</h1>
+    <p class="sub">Escolha seus sabores favoritos, monte seu açaí do seu jeito e peça sem complicação.</p>
+    <div class="hero-actions">
+      <a class="btn btn-roxo" href="#monte">Pedir meu açaí</a>
+      <a class="btn btn-lilas" href="#cardapio">Ver cardápio</a>
+    </div>
+    <div class="hero-info">
+      <div><svg viewBox="0 0 24 24"><path d="M12 21s7-6.1 7-11a7 7 0 1 0-14 0c0 4.9 7 11 7 11z"/><circle cx="12" cy="10" r="2.6"/></svg> Igrejinha &amp; Parobé</div>
+      <div><svg viewBox="0 0 24 24"><path d="M3 16V7a2 2 0 0 1 2-2h9v11H7"/><path d="M14 9h4l3 3.5V16h-2"/><circle cx="6.5" cy="17.5" r="1.7"/><circle cx="16.5" cy="17.5" r="1.7"/></svg> Delivery e retirada</div>
+      <div><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.2 2"/></svg> Retirada no espaço físico</div>
+    </div>
+  </div>
+  <div class="hero-img"><img src="img/hero_acai.jpg" alt="Copo de açaí DaHora Açaí"></div>
+</div>
+
+<!-- ======================= CATEGORIAS ======================= -->
+<section>
+  <div class="sec-head"><h2>Categorias</h2><a href="#cardapio">Ver tudo</a></div>
+  <div class="cat-grid">
+    <a class="cat-card" href="#cardapio"><img src="img/acai400.jpg" alt="Açaí tradicional"><h3>Açaí tradicional</h3><p>Monte do seu jeito com os acompanhamentos favoritos!</p></a>
+    <a class="cat-card" href="#cat-cupuacu-misto"><img src="img/acai_cupuacu.jpg" alt="Açaí com cupuaçu"><h3>Açaí com cupuaçu</h3><p>A mistura perfeita do doce com o azedinho.</p></a>
+    <a class="cat-card" href="#cat-cravejado"><img src="img/cravejado400.jpg" alt="Açaí cravejado"><h3>Açaí cravejado</h3><p>Cremoso, recheado e caprichado até o fim.</p></a>
+    <a class="cat-card" href="#cat-trufados"><img src="img/trufado300.jpg" alt="Copos trufados"><h3>Copos trufados</h3><p>Extremamente recheados, feitos sem miséria.</p></a>
+    <a class="cat-card" href="#cat-cupuacu"><img src="img/cupuacu300.jpg" alt="Cupuaçu puro"><h3>Cupuaçu puro</h3><p>O azedinho cremoso que refresca.</p></a>
+    <a class="cat-card" href="#cat-bebidas"><img src="img/espaco.jpg" alt="Bebidas"><h3>Bebidas</h3><p>Para acompanhar o seu copo.</p></a>
+  </div>
+</section>
+
+<!-- ======================= CARDÁPIO ======================= -->
+<section id="cardapio">
+  <div class="sec-head"><h2>Cardápio</h2></div>
+  <div id="menuContainer"><!-- blocos de categoria inseridos via JS --></div>
+</section>
+
+<!-- ======================= MONTE SEU AÇAÍ ======================= -->
+<section id="monte">
+  <div class="sec-head"><h2>Monte seu açaí</h2></div>
+  <p class="desc" style="font-size:.85rem;color:var(--texto-suave);margin-bottom:16px">Escolha o tamanho e siga o passo a passo: base, acompanhamentos e revisão. O preço é atualizado em tempo real e você envia o pedido pelo WhatsApp.</p>
+  <div class="opt-grid" style="max-width:640px">
+    <button class="opt" onclick="abrirBuilder('acai-tradicional')"><strong>Açaí tradicional</strong><small>de 250 ml a 1 litro · a partir de R$ 12,00</small></button>
+    <button class="opt" onclick="abrirBuilder('acai-cupuacu')"><strong>Açaí com cupuaçu</strong><small>500 ml e 700 ml · a partir de R$ 20,00</small></button>
+  </div>
+</section>
+
+<!-- ======================= SOBRE ======================= -->
+<section>
+  <div class="sec-head"><h2>Sobre a DaHora</h2></div>
+  <div class="sobre-grid">
+    <img src="img/espaco.jpg" alt="Espaço físico da DaHora Açaí" style="object-fit:cover">
+    <div class="info-card">
+      <h3>💜 O melhor açaí do seu jeito</h3>
+      <p style="font-size:.86rem;color:var(--texto-suave)">A DaHora Açaí é uma sorveteria/açaiteria com atendimento em <strong>Igrejinha e Parobé</strong>, oferecendo <strong>delivery, retirada e espaço físico</strong> para você tomar o seu copo com calma. Faça seu pedido ou venha nos visitar!</p>
+      <div style="display:flex;gap:16px;margin-top:14px;flex-wrap:wrap;font-size:.78rem;font-weight:600;color:var(--roxo)">
+        <span>📍 Igrejinha &amp; Parobé</span>
+        <span>🛵 Delivery</span>
+        <span>🏠 Retirada</span>
+        <span>🌿 Espaço físico</span>
+      </div>
+      <div class="aviso">📸 Siga a gente no Instagram: <a href="https://www.instagram.com/dahoracaiteria" target="_blank" rel="noopener" style="font-weight:700">@dahoracaiteria</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= LOCALIZAÇÃO ======================= -->
+<section id="local">
+  <div class="sec-head"><h2>Localização e contato</h2></div>
+  <div class="sobre-grid">
+    <div class="info-card">
+      <h3>📍 Onde nos encontrar</h3>
+      <div class="info-item"><svg viewBox="0 0 24 24"><path d="M12 21s7-6.1 7-11a7 7 0 1 0-14 0c0 4.9 7 11 7 11z"/><circle cx="12" cy="10" r="2.6"/></svg><span id="txtEndereco">Endereço: <em>a confirmar pela loja</em> — unidades em Igrejinha e Parobé/RS.</span></div>
+      <div class="info-item"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.2 2"/></svg><span id="txtHorario">Horário de funcionamento: <em>a confirmar pela loja</em>.</span></div>
+      <div class="info-item"><svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7l.7 3a2 2 0 0 1-.6 2L8 9.9a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2-.6l3 .7a2 2 0 0 1 1.7 2z"/></svg><span id="txtWhats">WhatsApp: <em>a configurar</em> — definido no bloco CONFIG do site.</span></div>
+      <div class="info-item"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".8"/></svg><span>Instagram: <a href="https://www.instagram.com/dahoracaiteria" target="_blank" rel="noopener" style="font-weight:700;color:var(--roxo)">@dahoracaiteria</a></span></div>
+      <div class="aviso">⚠️ Os campos de endereço, horário, WhatsApp e taxa de entrega são <strong>marcadores</strong> no arquivo do site (bloco <code>CONFIG</code>). Confirme os dados reais com a loja antes de publicar.</div>
+    </div>
+    <img src="img/salao.jpg" alt="Salão da DaHora Açaí" style="object-fit:cover;height:280px">
+  </div>
+</section>
+
+<footer>
+  <div class="foot-in">
+    <div><strong>DaHora Açaí 💜</strong>O melhor açaí do seu jeito.<br>Igrejinha &amp; Parobé — RS</div>
+    <div><strong>Pedidos</strong>Delivery e retirada.<br>Pedido mínimo: R$ 14,00 (a confirmar).</div>
+    <div><strong>Redes</strong><a href="https://www.instagram.com/dahoracaiteria" target="_blank" rel="noopener">Instagram @dahoracaiteria</a></div>
+  </div>
+</footer>
+<div class="espaco-rodape"></div>
+
+<!-- ======================= CARRINHO (drawer) ======================= -->
+<div class="overlay" id="overlay" onclick="fecharCarrinho()"></div>
+<aside class="drawer" id="drawer" aria-label="Carrinho">
+  <div class="drawer-head">
+    <strong>Seu carrinho</strong>
+    <button class="fechar" onclick="fecharCarrinho()" aria-label="Fechar">✕</button>
+  </div>
+  <div class="drawer-body" id="drawerBody"></div>
+  <div class="drawer-foot">
+    <button class="btn-final" id="btnFinalizar" onclick="finalizarWhatsApp()">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="#fff"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2zm5.5 14.1c-.2.7-1.3 1.3-1.8 1.3-.5.1-1 .2-3.3-.7-2.8-1.1-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5s.8 1.9.8 2c.1.1.1.3 0 .5-.3.6-.7.9-.5 1.2.7 1.2 1.6 2 2.8 2.6.3.2.5.1.7-.1l.9-1.1c.2-.3.4-.2.7-.1l2 1c.3.1.5.2.5.4 0 .1 0 .7-.2 1.3z"/></svg>
+      Finalizar pedido pelo WhatsApp
+    </button>
+    <div class="nota-pix">Pagamento combinado com a loja na confirmação do pedido (PIX disponível — ver instruções da loja).</div>
+  </div>
+</aside>
+
+<!-- ======================= MODAL PERSONALIZADOR ======================= -->
+<div class="modal" id="modal">
+  <div class="modal-bg" onclick="fecharBuilder()"></div>
+  <div class="modal-card">
+    <div class="modal-head"><strong id="mTitulo">Monte seu açaí</strong><button class="fechar" onclick="fecharBuilder()" aria-label="Fechar">✕</button></div>
+    <div class="steps"><span id="s1" class="on"></span><span id="s2"></span><span id="s3"></span><span id="s4"></span></div>
+    <div class="modal-body" id="mBody"></div>
+    <div class="modal-foot">
+      <span class="preco-live" id="mPreco">R$ 0,00</span>
+      <button class="btn btn-ghost" id="mVoltar" onclick="builderVoltar()">Voltar</button>
+      <button class="btn btn-roxo" id="mAvancar" onclick="builderAvancar()">Continuar</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast">Adicionado ao carrinho 💜</div>
+
+<script>
+/* ╔══════════════════════════════════════════════════════════════╗
+   ║  ⚙️ CONFIG — DADOS A CONFIRMAR PELA LOJA ANTES DE PUBLICAR    ║
+   ║  NADA aqui é informação confirmada, exceto preços/categorias  ║
+   ║  extraídos do cardápio oficial (pedido.anota.ai) e o          ║
+   ║  Instagram @dahoracaiteria. Preencha e remova os avisos.      ║
+   ╚══════════════════════════════════════════════════════════════╝ */
+const CONFIG = {
+  whatsappNumero: "55XXXXXXXXXXX",   // ← SUBSTITUIR: número oficial com DDD, formato internacional, só dígitos
+  enderecoLoja:  "Endereço a confirmar — Igrejinha e Parobé/RS",
+  horarioLoja:   "Horário a confirmar pela loja",
+  taxaEntrega:   null,               // null = loja confirma no WhatsApp (não inventar valor)
+  pedidoMinimo:  14.00,              // exibido no cardápio original ("Pedido mín. R$ 14,00") — confirmar
+  instagram:     "https://www.instagram.com/dahoracaiteria",
+  // Limite de acompanhamentos inclusos por tamanho (o cardápio confirma
+  // apenas o 1L: "ATÉ 7 ACOMPANHAMENTOS LIBERADOS"). Os demais são
+  // PLACEHOLDERS — a loja deve definir a regra real de cada tamanho.
+  limiteAcomp: { "250 ml": 7, "300 ml": 7, "400 ml": 7, "500 ml": 7, "700 ml": 7, "1 litro": 7 },
+  // Lista preliminar de acompanhamentos — CONFIRMAR com a loja.
+  acompanhamentos: ["Granola","Leite em pó","Leite condensado","Morango","Banana","Kiwi","Confete colorido","Jujuba","Chocoball","KitKat","Ovomaltine","Paçoca","Nutella (add.)","Caramelo","Gotas de chocolate","Cocada","Amendoim","Brigadeiro"],
+  acompanhamentosPagos: ["Nutella (add.)"]  // itens com custo adicional, se a loja definir
+};
+
+/* ══════════ PRODUTOS — preços transcritos do cardápio oficial ══════════ */
+const PRODUTOS = [
+  // Açaí tradicional
+  {cat:"acai",    catNome:"Açaí tradicional", nome:"Açaí 250 ml", preco:12.00, img:"img/acai400.jpg",  desc:"Monte como você quiser com os seus acompanhamentos favoritos!", builder:"acai-tradicional", tam:"250 ml"},
+  {cat:"acai",    catNome:"Açaí tradicional", nome:"Açaí 300 ml", preco:15.00, img:"img/acai400.jpg",  desc:"Monte como você quiser com os seus acompanhamentos favoritos!", builder:"acai-tradicional", tam:"300 ml"},
+  {cat:"acai",    catNome:"Açaí tradicional", nome:"Açaí 400 ml", preco:17.00, img:"img/acai400.jpg",  desc:"Monte como você quiser com os seus acompanhamentos favoritos!", builder:"acai-tradicional", tam:"400 ml"},
+  {cat:"acai",    catNome:"Açaí tradicional", nome:"Açaí 500 ml", preco:20.00, img:"img/acai500.jpg",  desc:"Monte como você quiser com os seus acompanhamentos favoritos!", builder:"acai-tradicional", tam:"500 ml"},
+  {cat:"acai",    catNome:"Açaí tradicional", nome:"Açaí 700 ml", preco:24.00, img:"img/acai700.jpg",  desc:"Monte o seu açaí com os seus acompanhamentos favoritos!", builder:"acai-tradicional", tam:"700 ml"},
+  {cat:"acai",    catNome:"Açaí tradicional", nome:"Açaí 1 litro", preco:42.00, img:"img/acai1l.jpg", desc:"ATÉ 7 ACOMPANHAMENTOS LIBERADOS! Monte do jeito que quiser, com os seus favoritos.", builder:"acai-tradicional", tam:"1 litro"},
+  // Açaí com cupuaçu
+  {cat:"acai-cupuacu", catNome:"Açaí com cupuaçu", nome:"Açaí com Cupuaçu 500 ml", preco:20.00, img:"img/acai_cupuacu.jpg", desc:"A mistura cremosa do açaí com o azedinho do cupuaçu.", builder:"acai-cupuacu", tam:"500 ml"},
+  {cat:"acai-cupuacu", catNome:"Açaí com cupuaçu", nome:"Açaí com Cupuaçu 700 ml", preco:24.00, img:"img/acai_cupuacu.jpg", desc:"A mistura cremosa do açaí com o azedinho do cupuaçu.", builder:"acai-cupuacu", tam:"700 ml"},
+  // Açaí cravejado
+  {cat:"cravejado", catNome:"Açaí cravejado", nome:"Copo de 400 ml", preco:23.90, img:"img/cravejado400.jpg", desc:"Creme leitinho + caramelo triturado + morangos + leite em pó + leite condensado + açaí cremoso."},
+  {cat:"cravejado", catNome:"Açaí cravejado", nome:"Copo de 500 ml", preco:26.90, img:"img/cravejado500.jpg", desc:"Creme leitinho + caramelo triturado + morangos + leite em pó + leite condensado + açaí cremoso."},
+  // Copos trufados
+  {cat:"trufados", catNome:"Copos trufados", nome:"Copos Trufado 300 ml", preco:null, img:"img/trufado300.jpg", desc:"Extremamente RECHEADOS, feitos com muito capricho e sem miséria — para quem gosta de sobremesa completa."},
+  {cat:"trufados", catNome:"Copos trufados", nome:"Copos Trufado 400 ml", preco:null, img:"img/trufado400.jpg", desc:"Extremamente RECHEADOS, feitos com muito capricho e sem miséria — para quem gosta de sobremesa completa."},
+  // Cupuaçu puro
+  {cat:"cupuacu", catNome:"Cupuaçu puro", nome:"Cupuaçu Puro 300 ml", preco:14.00, img:"img/cupuacu300.jpg", desc:"Cremoso e refrescante, com toque de frutas."},
+  {cat:"cupuacu", catNome:"Cupuaçu puro", nome:"Cupuaçu Puro 400 ml", preco:17.00, img:"img/cupuacu400.jpg", desc:"Cremoso e refrescante, com toque de frutas."},
+  {cat:"cupuacu", catNome:"Cupuaçu puro", nome:"Cupuaçu Puro 500 ml", preco:20.00, img:"img/cupuacu500.jpg", desc:"Cremoso e refrescante, com toque de frutas."},
+  {cat:"cupuacu", catNome:"Cupuaçu puro", nome:"Cupuaçu Puro 700 ml", preco:24.00, img:"img/cupuacu700.jpg", desc:"Cremoso e refrescante, com toque de frutas."},
+  // Bebidas
+  {cat:"bebidas", catNome:"Bebidas", nome:"Coca ZERO 2L", preco:15.00, img:"img/espaco.jpg", desc:"Garrafa 2 litros gelada."}
+];
+
+const ORDEM_CATS = [
+  {id:"acai",        nome:"Açaí tradicional", desc:"Monte do seu jeito com os acompanhamentos favoritos!"},
+  {id:"acai-cupuacu",nome:"Açaí com cupuaçu", desc:"Doce + azedinho na medida certa."},
+  {id:"cravejado",   nome:"Açaí cravejado",   desc:"Cremoso, recheado e caprichado."},
+  {id:"trufados",    nome:"Copos trufados",   desc:"Extremamente recheados, feitos sem miséria."},
+  {id:"cupuacu",     nome:"Cupuaçu puro",     desc:"O azedinho cremoso que refresca."},
+  {id:"bebidas",     nome:"Bebidas",          desc:"Para acompanhar o seu copo."}
+];
+
+/* ══════════ CARRINHO (localStorage) ══════════ */
+let carrinho = JSON.parse(localStorage.getItem("dahora_cart") || "[]");
+const salvar = () => localStorage.setItem("dahora_cart", JSON.stringify(carrinho));
+const brl = v => "R$ " + v.toFixed(2).replace(".", ",");
+
+function atualizarBadge(){
+  const n = carrinho.reduce((s,i)=>s+i.qty,0);
+  const b = document.getElementById("badge");
+  b.textContent = n; b.classList.toggle("on", n>0);
+}
+function addItem(item){
+  const chave = item.nome + "|" + (item.opcoes||"").join(",");
+  const existente = carrinho.find(i=>i.chave===chave);
+  if(existente){ existente.qty++; } else { item.chave = chave; carrinho.push(item); }
+  salvar(); atualizarBadge(); renderCarrinho();
+  const t = document.getElementById("toast"); t.classList.add("on");
+  setTimeout(()=>t.classList.remove("on"), 1800);
+}
+function mudarQtd(idx, delta){
+  carrinho[idx].qty += delta;
+  if(carrinho[idx].qty<=0) carrinho.splice(idx,1);
+  salvar(); atualizarBadge(); renderCarrinho();
+}
+function removerItem(idx){ carrinho.splice(idx,1); salvar(); atualizarBadge(); renderCarrinho(); }
+function totalCarrinho(){ return carrinho.reduce((s,i)=>s+i.preco*i.qty,0); }
+
+function renderCarrinho(){
+  const body = document.getElementById("drawerBody");
+  const foot = document.getElementById("btnFinalizar");
+  if(!carrinho.length){
+    body.innerHTML = `<div class="carrinho-vazio">
+      <svg viewBox="0 0 24 24"><path d="M6 6h15l-1.5 8.5a2 2 0 0 1-2 1.5H8.6a2 2 0 0 1-2-1.6L4.6 3.6A1 1 0 0 0 3.6 3H2"/><circle cx="9" cy="20" r="1.4"/><circle cx="18" cy="20" r="1.4"/></svg>
+      <strong>Seu carrinho está vazio</strong><br>Mas falta pouco pra resolver isso 💜
+      <br><button class="btn btn-roxo" onclick="fecharCarrinho();location.hash='#cardapio'">Explorar cardápio</button></div>`;
+    foot.style.display = "none";
+    return;
+  }
+  foot.style.display = "flex";
+  body.innerHTML = carrinho.map((i,idx)=>`
+    <div class="cart-item">
+      <div class="linha1"><h4>${i.nome}</h4><span class="val">${brl(i.preco*i.qty)}</span></div>
+      ${i.opcoes && i.opcoes.length ? `<div class="ops">🥣 ${i.opcoes.join(" + ")}</div>`:""}
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-top:8px">
+        <div class="qtd">
+          <button onclick="mudarQtd(${idx},-1)" aria-label="Diminuir">−</button><span>${i.qty}</span><button onclick="mudarQtd(${idx},1)" aria-label="Aumentar">+</button>
+        </div>
+        <button class="remover" onclick="removerItem(${idx})">Remover</button>
+      </div>
+    </div>`).join("") +
+    `<div class="fld" style="margin-top:16px">
+      <label>Retirada ou entrega?</label>
+      <div class="toggle-entrega">
+        <button id="tgRetirada" onclick="setEntrega('retirada')">🏠 Retirada no local</button>
+        <button id="tgEntrega" onclick="setEntrega('entrega')">🛵 Entrega</button>
+      </div>
+    </div>
+    <div id="camposEntrega"></div>
+    <div class="fld"><label>Nome (opcional)</label><input id="fNome" placeholder="Seu nome"></div>
+    <div class="fld"><label>Observações (opcional)</label><textarea id="fObs" rows="2" placeholder="Ex: sem açúcar, trocar granola..."></textarea></div>
+    <div class="totais">
+      <div class="l"><span>Subtotal dos produtos</span><span>${brl(totalCarrinho())}</span></div>
+      <div class="l"><span>Taxa de entrega</span><span id="lTaxa">—</span></div>
+      <div class="l total"><span>Total estimado</span><span id="lTotal">${brl(totalCarrinho())}</span></div>
+    </div>`;
+  atualizarTotais();
+}
+
+let modoEntrega = "retirada";
+function setEntrega(modo){
+  modoEntrega = modo;
+  document.getElementById("tgRetirada").classList.toggle("on", modo==="retirada");
+  document.getElementById("tgEntrega").classList.toggle("on", modo==="entrega");
+  atualizarTotais();
+}
+function atualizarTotais(){
+  const campos = document.getElementById("camposEntrega");
+  if(!campos) return;
+  campos.innerHTML = modoEntrega==="entrega"
+    ? `<div class="fld"><label>Endereço completo *</label><input id="fEnd" placeholder="Rua, número, bairro"></div>
+       <div class="fld"><label>Complemento / ponto de referência</label><input id="fComp" placeholder="Ex: apto 101, perto da padaria"></div>`
+    : `<div class="aviso" style="margin-bottom:10px">🏠 Retirada no local: ${CONFIG.enderecoLoja}</div>`;
+  const totalEl = document.getElementById("lTotal"), taxaEl = document.getElementById("lTaxa");
+  if(!totalEl) return;
+  const subtotal = totalCarrinho();
+  if(modoEntrega==="entrega" && CONFIG.taxaEntrega!==null){
+    taxaEl.textContent = brl(CONFIG.taxaEntrega);
+    totalEl.textContent = brl(subtotal + CONFIG.taxaEntrega);
+  } else {
+    taxaEl.textContent = modoEntrega==="entrega" ? "confirmado pela loja" : "isento (retirada)";
+    totalEl.textContent = brl(subtotal);
+  }
+}
+
+/* ══════════ WHATSAPP ══════════ */
+function finalizarWhatsApp(){
+  if(!carrinho.length) return;
+  if(CONFIG.whatsappNumero.includes("X")){
+    alert("⚠️ O número do WhatsApp ainda não foi configurado.\n\nEdite o bloco CONFIG no arquivo do site (whatsappNumero) com o número oficial da DaHora Açaí antes de publicar.");
+    return;
+  }
+  const nome = (document.getElementById("fNome")?.value || "").trim();
+  const obs  = (document.getElementById("fObs")?.value  || "").trim();
+  const end  = (document.getElementById("fEnd")?.value  || "").trim();
+  const comp = (document.getElementById("fComp")?.value || "").trim();
+  if(modoEntrega==="entrega" && !end){
+    alert("Para entrega, informe o endereço completo. 🙂");
+    document.getElementById("fEnd").focus();
+    return;
+  }
+  const linhas = [];
+  carrinho.forEach((i,n)=>{
+    linhas.push(`${n+1}. ${i.nome}`);
+    linhas.push(`   Quantidade: ${i.qty}`);
+    if(i.opcoes && i.opcoes.length) linhas.push(`   Acompanhamentos: ${i.opcoes.join(", ")}`);
+    linhas.push(`   Valor: ${brl(i.preco*i.qty)}`);
+  });
+  const subtotal = totalCarrinho();
+  let msg =
+`Olá, DaHora Açaí! Gostaria de fazer o seguinte pedido:
+${nome ? "\nNome: " + nome : ""}
+*MEU PEDIDO*
+
+${linhas.join("\n")}
+
+Subtotal: ${brl(subtotal)}
+
+Entrega ou retirada: ${modoEntrega==="entrega" ? "Entrega" : "Retirada no estabelecimento"}`;
+  if(modoEntrega==="entrega"){
+    msg += `\nEndereço: ${end}${comp ? " — " + comp : ""}`;
+    msg += `\nTaxa de entrega: ${CONFIG.taxaEntrega!==null ? brl(CONFIG.taxaEntrega) : "a confirmar pela loja"}`;
+  }
+  msg += `\nTotal estimado: ${brl(subtotal + (modoEntrega==="entrega" && CONFIG.taxaEntrega!==null ? CONFIG.taxaEntrega : 0))}`;
+  msg += `\n\nObservações: ${obs || "—"}`;
+  msg += `\n\nPor favor, confirmem a disponibilidade e os detalhes do pedido. Obrigado!`;
+  const url = "https://wa.me/" + CONFIG.whatsappNumero + "?text=" + encodeURIComponent(msg);
+  window.open(url, "_blank");
+}
+
+/* ══════════ CARDÁPIO (render) ══════════ */
+function renderMenu(){
+  document.getElementById("menuContainer").innerHTML = ORDEM_CATS.map(cat=>{
+    const itens = PRODUTOS.filter(p=>p.cat===cat.id);
+    return `<div class="categoria-bloco" id="cat-${cat.id}">
+      <h2>${cat.nome}</h2><div class="desc">${cat.desc}</div>
+      <div class="prod-grid">${itens.map((p)=>{
+        const idxGlobal = PRODUTOS.indexOf(p);
+        const precoHtml = p.preco!==null
+          ? `<span class="preco">${brl(p.preco)}</span>`
+          : `<span class="preco" style="font-size:.78rem">preço a confirmar</span>`;
+        const btn = p.preco!==null
+          ? (p.builder
+              ? `<button class="btn-add" onclick="abrirBuilder('${p.builder}','${p.tam}')">Montar</button>`
+              : `<button class="btn-add" onclick="addRapido(${idxGlobal})">Adicionar</button>`)
+          : `<button class="btn-add" style="background:var(--lilas);color:var(--roxo-escuro)" disabled title="Preço a confirmar pela loja">Adicionar</button>`;
+        return `<div class="prod-card">
+          <img src="${p.img}" alt="${p.nome}" loading="lazy">
+          <div class="prod-info">
+            <h3>${p.nome}</h3><div class="desc">${p.desc}</div>
+            ${p.tam==="1 litro"?'<span class="tag">💜 7 ACOMPANHAMENTOS LIBERADOS</span>':""}
+            <div class="prod-foot">${precoHtml}${btn}</div>
+          </div></div>`;
+      }).join("")}</div></div>`;
+  }).join("");
+}
+function addRapido(idx){
+  const p = PRODUTOS[idx];
+  addItem({nome:p.nome, preco:p.preco, qty:1, opcoes:[]});
+}
+
+/* ══════════ PERSONALIZADOR (builder em etapas) ══════════ */
+let b = null; // estado do builder
+function abrirBuilder(tipo, tamFixo){
+  const prod = PRODUTOS.find(p=>p.builder===tipo);
+  const tamanhos = PRODUTOS.filter(p=>p.builder===tipo);
+  b = { tipo, etapa:1, tam: tamFixo || null, base: null, acomp: [], preco: 0 };
+  document.getElementById("mTitulo").textContent = tipo==="acai-tradicional" ? "Monte seu Açaí 💜" : "Açaí com Cupuaçu 💜";
+  document.getElementById("modal").classList.add("on");
+  document.body.style.overflow = "hidden";
+  renderEtapa();
+}
+function fecharBuilder(){
+  document.getElementById("modal").classList.remove("on");
+  document.body.style.overflow = "";
+  b = null;
+}
+function bases(tipo){ return tipo==="acai-tradicional" ? ["Açaí cremoso tradicional"] : ["Açaí com cupuaçu"]; }
+function precoBase(tipo,tam){ return PRODUTOS.find(p=>p.builder===tipo && p.tam===tam).preco; }
+
+function calcPreco(){
+  if(!b.tam) return 0;
+  let t = precoBase(b.tipo, b.tam);
+  b.acomp.forEach(a=>{ if(CONFIG.acompanhamentosPagos.includes(a)) t += 3.00; /* valor adicional PLACEHOLDER — confirmar */ });
+  return t;
+}
+function renderEtapa(){
+  const body = document.getElementById("mBody");
+  const voltar = document.getElementById("mVoltar");
+  const avancar = document.getElementById("mAvancar");
+  [1,2,3,4].forEach(n=>document.getElementById("s"+n).classList.toggle("on", b.etapa>=n));
+  const tamanhos = PRODUTOS.filter(p=>p.builder===b.tipo);
+
+  if(b.etapa===1){ /* TAMANHO */
+    voltar.style.visibility="hidden";
+    avancar.textContent="Continuar"; avancar.disabled = !b.tam;
+    body.innerHTML = `<h3>Escolha o tamanho</h3><div class="dica">Preço do copo com os acompanhamentos inclusos conforme a regra da loja.</div>
+      <div class="opt-grid">${tamanhos.map(p=>`
+        <button class="opt ${b.tam===p.tam?"on":""}" onclick="b.tam='${p.tam}';renderEtapa()">
+          <strong>${p.tam}</strong><small>${brl(p.preco)}</small></button>`).join("")}</div>`;
+  }
+  else if(b.etapa===2){ /* BASE */
+    voltar.style.visibility="visible";
+    avancar.textContent="Continuar"; avancar.disabled = !b.base;
+    body.innerHTML = `<h3>Escolha a base</h3><div class="dica">Bases oferecidas pela loja.</div>
+      <div class="opt-grid">${bases(b.tipo).map(bs=>`
+        <button class="opt ${b.base===bs?"on":""}" onclick="b.base='${bs}';renderEtapa()">
+          <strong>${bs}</strong><small>cremoso e geladinho</small></button>`).join("")}</div>`;
+  }
+  else if(b.etapa===3){ /* ACOMPANHAMENTOS */
+    const limite = CONFIG.limiteAcomp[b.tam] || 7;
+    avancar.textContent="Continuar"; avancar.disabled=false;
+    body.innerHTML = `<h3>Acompanhamentos</h3>
+      <div class="dica">Até <strong>${limite}</strong> liberados no tamanho ${b.tam}. Itens marcados com valor têm custo adicional.
+      <br><em style="font-size:.7rem">Lista preliminar — confirme os sabores disponíveis com a loja.</em></div>
+      <div class="check-list">${CONFIG.acompanhamentos.map(a=>`
+        <label class="chk"><input type="checkbox" ${b.acomp.includes(a)?"checked":""} onchange="toggleAcomp('${a}',${limite},this)">
+        ${a}${CONFIG.acompanhamentosPagos.includes(a)?'<span class="add">+ R$ 3,00*</span>':""}</label>`).join("")}</div>`;
+  }
+  else { /* REVISÃO */
+    avancar.textContent="Adicionar ao carrinho"; avancar.disabled=false;
+    body.innerHTML = `<h3>Revise seu pedido</h3><div class="dica">Confirme tudo certinho antes de adicionar. 💜</div>
+      <div class="revisao">
+        <h4>${b.tipo==="acai-tradicional"?"Açaí tradicional":"Açaí com cupuaçu"} — ${b.tam}</h4>
+        <p><strong>Base:</strong> ${b.base||"—"}</p>
+        <p><strong>Acompanhamentos:</strong> ${b.acomp.length?b.acomp.join(", "):"nenhum"}</p>
+        <p style="font-weight:800;color:var(--roxo);font-size:1.05rem">Total: ${brl(calcPreco())}</p>
+      </div>`;
+  }
+  document.getElementById("mPreco").textContent = brl(calcPreco());
+  body.parentElement.scrollTop = 0;
+}
+function toggleAcomp(a, limite, cb){
+  if(cb.checked){
+    if(b.acomp.length >= limite){
+      cb.checked = false;
+      alert(`Limite de ${limite} acompanhamentos para o tamanho ${b.tam}. 😊`);
+      return;
+    }
+    b.acomp.push(a);
+  } else {
+    b.acomp = b.acomp.filter(x=>x!==a);
+  }
+  document.getElementById("mPreco").textContent = brl(calcPreco());
+}
+function builderVoltar(){
+  if(b.etapa>1){ b.etapa--; renderEtapa(); }
+}
+function builderAvancar(){
+  if(b.etapa===1 && !b.tam) return;
+  if(b.etapa===2 && !b.base){ alert("Escolha a base para continuar. 🙂"); return; }
+  if(b.etapa===3 && b.acomp.length===0){ if(!confirm("Nenhum acompanhamento selecionado. Continuar assim mesmo?")) return; }
+  if(b.etapa<4){ b.etapa++; renderEtapa(); }
+  else {
+    addItem({nome:`${b.tipo==="acai-tradicional"?"Açaí":"Açaí c/ Cupuaçu"} ${b.tam}`, preco:calcPreco(), qty:1, opcoes:[b.base].concat(b.acomp)});
+    fecharBuilder();
+  }
+}
+
+/* ══════════ NAVEGAÇÃO ══════════ */
+function abrirCarrinho(){ renderCarrinho(); document.getElementById("drawer").classList.add("on"); document.getElementById("overlay").classList.add("on"); }
+function fecharCarrinho(){ document.getElementById("drawer").classList.remove("on"); document.getElementById("overlay").classList.remove("on"); }
+document.getElementById("btnCart").addEventListener("click", abrirCarrinho);
+document.getElementById("navCats").addEventListener("click", e=>{
+  if(e.target.tagName==="A"){
+    document.querySelectorAll("#navCats a").forEach(a=>a.classList.remove("ativo"));
+    e.target.classList.add("ativo");
+  }
+});
+
+/* ══════════ INICIALIZAÇÃO ══════════ */
+renderMenu();
+atualizarBadge();
+</script>
+</body>
+</html>
